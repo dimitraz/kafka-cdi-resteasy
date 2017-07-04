@@ -22,8 +22,12 @@ public class MessageResource {
 	@GET
 	@Path("/{param}")
 	public Response publishMessage(@PathParam("param") String message) {
-		producer.send(message);
-		return Response.status(200).entity(message).build();
+		if (producer == null) {
+			return Response.status(200).entity("Producer is null").build();
+		} else {
+			producer.send(message);
+			return Response.status(200).entity(message).build();
+		}
 	}
 
 }
