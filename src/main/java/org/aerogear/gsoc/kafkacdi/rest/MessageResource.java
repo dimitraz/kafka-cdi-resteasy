@@ -11,10 +11,10 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("/publish")
-@Produces(MediaType.TEXT_PLAIN)
+@Produces(MediaType.APPLICATION_JSON)
 public class MessageResource {
 
-    private final String KAFKA_TOPIC = "kafka-cdi";
+    private final String KAFKA_TOPIC = "kafka-published";
 
 	@Producer(topic = KAFKA_TOPIC)
 	SimpleKafkaProducer<String, String> producer;
@@ -22,12 +22,15 @@ public class MessageResource {
 	@GET
 	@Path("/{param}")
 	public Response publishMessage(@PathParam("param") String message) {
+
 		if (producer == null) {
 			return Response.status(200).entity("Producer is null").build();
-		} else {
+		}
+		else {
 			producer.send(message);
 			return Response.status(200).entity(message).build();
 		}
+
 	}
 
 }
