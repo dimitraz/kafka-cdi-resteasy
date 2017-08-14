@@ -1,13 +1,14 @@
 # Testing the Kafka CDI
-RESTeasy application to test the Kafka CDI extension by [@matzew](https://github.com/matzew) .
+RESTeasy Swarm application to test the Kafka CDI extension by [@matzew](https://github.com/matzew).
 
 
 ## Building
 
-Build the WAR:
+Build the Wildfly Swarm fat jar, and run:
 
 ```
-mvn clean install
+$ mvn clean install
+$ java -jar target/kafkacdi-<version>-swarm.jar
 ```
 
 Publish a message:
