@@ -1,4 +1,4 @@
-package org.aerogear.gsoc.kafkacdi.resource;
+package org.aerogear.gsoc.kafkacdi.rest;
 
 import net.wessendorf.kafka.SimpleKafkaProducer;
 import net.wessendorf.kafka.cdi.annotation.Producer;
