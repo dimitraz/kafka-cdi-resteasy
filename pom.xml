@@ -73,7 +73,7 @@
         <dependency>
             <groupId>net.wessendorf.kafka</groupId>
             <artifactId>kafka-cdi-extension</artifactId>
-            <version>0.0.5</version>
+            <version>0.0.9</version>
         </dependency>
 
         <!-- WildFly Swarm Fractions -->

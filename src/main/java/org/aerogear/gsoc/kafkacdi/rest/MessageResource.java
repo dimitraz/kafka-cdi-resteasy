@@ -16,7 +16,7 @@ public class MessageResource {
 
     private final String KAFKA_TOPIC = "kafka-published";
 
-	@Producer(topic = KAFKA_TOPIC)
+	@Producer
 	SimpleKafkaProducer<String, String> producer;
 
 	@GET
@@ -27,7 +27,7 @@ public class MessageResource {
 			return Response.status(200).entity("Producer is null").build();
 		}
 		else {
-			producer.send(message);
+			producer.send(KAFKA_TOPIC, message);
 			return Response.status(200).entity(message).build();
 		}
 

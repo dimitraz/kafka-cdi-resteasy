@@ -7,7 +7,7 @@ public class MessageListener {
 
     Logger logger = Logger.getLogger(MessageListener.class.getName());
 
-    @Consumer(topic = "kafka-published", groupId = "consumerGroup1")
+    @Consumer(topics = "kafka-published", groupId = "consumerGroup1")
     public void consume(final String payload) {
         logger.warning(payload);
     }
